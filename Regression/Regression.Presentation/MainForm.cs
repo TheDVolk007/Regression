@@ -16,7 +16,7 @@ namespace Regression.Presentation
         {
             InitializeComponent();
 
-            drawer = new Drawer(canvas);
+            drawer = new Drawer(canvas, CoordinatePlane.FirstQuaterOnly);
         }
 
         private void initilizationButton_Click(object sender, EventArgs e)
@@ -32,7 +32,7 @@ namespace Regression.Presentation
 
             foreach(var entity in data)
             {
-                drawer.DrawPoint(entity.Data["size"]*1000, entity.Data["price"]*1000);
+                drawer.DrawPoint(entity.Data["size"] * 800, entity.Data["price"] * 800);
             }
         }
     }

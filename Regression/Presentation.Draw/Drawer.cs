@@ -23,14 +23,32 @@ namespace Presentation.Draw
 
         public void InitializeCoordinatePlane()
         {
-            var x0 = canvas.Width / 2;
-            var y0 = canvas.Height / 2;
-            using (var graphic = canvas.CreateGraphics())
+            const int padding = 10;
+            int x0;
+            int y0;
+            switch(coordinateOptions)
             {
-                graphic.DrawLine(Pens.Black, 
-                    new Point(x0, 0), new Point(x0, canvas.Height));
-                graphic.DrawLine(Pens.Black, 
-                    new Point(0, y0), new Point(canvas.Width, y0));
+                case CoordinatePlane.FirstQuaterOnly:
+                    x0 = padding;
+                    y0 = canvas.Height - padding;
+                    break;
+                case CoordinatePlane.FirstAndSecondQuaterOnly:
+                    x0 = canvas.Width / 2;
+                    y0 = canvas.Height - padding;
+                    break;
+                case CoordinatePlane.FirstAndFourthQuaterOnly:
+                    x0 = padding;
+                    y0 = canvas.Height / 2;
+                    break;
+                default:
+                    x0 = canvas.Width / 2;
+                    y0 = canvas.Height / 2;
+                    break;
+            }
+            using(var graphic = canvas.CreateGraphics())
+            {
+                graphic.DrawLine(Pens.Black, new Point(x0, 0), new Point(x0, canvas.Height));
+                graphic.DrawLine(Pens.Black, new Point(0, y0), new Point(canvas.Width, y0));
             }
 
             center = new Point(x0, y0);
@@ -43,10 +61,10 @@ namespace Presentation.Draw
 
         public void DrawPoint(double x, double y, Color color, int size = 4)
         {
-            using (var graphic = canvas.CreateGraphics())
+            using(var graphic = canvas.CreateGraphics())
             {
                 var pt = new Point((int)x + center.X, -(int)y + center.Y);
-                using (Brush b = new SolidBrush(color))
+                using(Brush b = new SolidBrush(color))
                 {
                     graphic.FillEllipse(b, pt.X - size / 2, pt.Y - size / 2, size, size);
                 }
