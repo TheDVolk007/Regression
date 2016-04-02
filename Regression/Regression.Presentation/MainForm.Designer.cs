@@ -87,6 +87,7 @@
             this.loadDataButton.TabIndex = 4;
             this.loadDataButton.Text = "Load data";
             this.loadDataButton.UseVisualStyleBackColor = true;
+            this.loadDataButton.Click += new System.EventHandler(this.loadDataButton_Click);
             // 
             // MainForm
             // 

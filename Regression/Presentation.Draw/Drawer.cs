@@ -7,9 +7,10 @@ namespace Presentation.Draw
     public class Drawer : IDrawer
     {
         private readonly PictureBox canvas;
+        private readonly CoordinatePlane coordinateOptions;
         private Point center;
 
-        public Drawer(PictureBox canvas)
+        public Drawer(PictureBox canvas, CoordinatePlane coordinateOptions = CoordinatePlane.WholePlane)
         {
             if(canvas == null)
             {
@@ -17,6 +18,7 @@ namespace Presentation.Draw
             }
 
             this.canvas = canvas;
+            this.coordinateOptions = coordinateOptions;
         }
 
         public void InitializeCoordinatePlane()

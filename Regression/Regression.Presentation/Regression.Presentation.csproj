@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataInitializer.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +84,14 @@
     <ProjectReference Include="..\Presentation.Draw\Presentation.Draw.csproj">
       <Project>{ebac0937-a30a-46d2-a218-5807af306e38}</Project>
       <Name>Presentation.Draw</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Regression.Domain\Regression.Domain.csproj">
+      <Project>{a076ca00-105e-4e58-b68e-63c7e98ec2ca}</Project>
+      <Name>Regression.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Regression\Regression.csproj">
+      <Project>{7a73d2e8-3d8a-4308-b89d-31f2d8a7b7e9}</Project>
+      <Name>Regression</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
