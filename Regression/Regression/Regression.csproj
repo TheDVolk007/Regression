@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataNormalizer.cs" />
+    <Compile Include="IDataNormalizer.cs" />
+    <Compile Include="LinearRegression.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

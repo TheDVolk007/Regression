@@ -28,7 +28,7 @@ namespace Regression.Presentation
             {
                 var houseData = new ExternalEntity();
                 houseData.Data.Add("size", size);
-                houseData.Data.Add("price", LinearFunction(size));
+                houseData.Data.Add("price", NonLinearFunctionWithSqrtDependency(size));
                 houseData.Label = $"house#{i}";
                 dataList.Add(houseData);
 
@@ -42,6 +42,13 @@ namespace Regression.Presentation
             var bias = rnd.Next(80000, 150000);
             var coefficient = rnd.Next(50, 70);
             return x * coefficient + bias;
+        }
+
+        private double NonLinearFunctionWithSqrtDependency(double x)
+        {
+            var bias = rnd.Next(80000, 150000);
+            var coefficient = rnd.Next(50, 70);
+            return x * Math.Sqrt(x) * coefficient + bias;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Regression.Presentation
     {
         private readonly IDrawer drawer;
         private List<ExternalEntity> data;
+        private DataNormalizer dataNormalizer;
 
         public MainForm()
         {
@@ -28,11 +29,13 @@ namespace Regression.Presentation
         {
             var dataInitializer = new DataInitializer();
             data = dataInitializer.Initialize();
-            new DataNormalizer().PerformFeatureScaling(data);
+            //dataNormalizer = new DataNormalizer();        //there is no need to use feature scaling in linear regression
+            //dataNormalizer.PerformFeatureScaling(data);
 
-            foreach(var entity in data)
+            foreach (var entity in data)
             {
-                drawer.DrawPoint(entity.Data["size"] * 800, entity.Data["price"] * 800);
+                drawer.DrawPoint(entity.Data["size"], entity.Data["price"] / 1000);
+                //drawer.DrawPoint(entity.Data["size"] * 930, entity.Data["price"] * 930);
             }
         }
     }

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Regression.Domain;
 
 namespace Regression
 {
-    public class DataNormalizer
+    public class DataNormalizer : IDataNormalizer
     {
+        [SuppressMessage("ReSharper", "ForCanBeConvertedToForeach")]    // using 'for' instead of 'foreach' prevents firing CollectionModifiedException
         public void PerformFeatureScaling(List<ExternalEntity> data)
         {
             var minmaxArguments = GetMinimalAndMaximumValuesOfArguments(data);
@@ -26,7 +28,7 @@ namespace Regression
             }
         }
 
-        private Dictionary<string, Tuple<double, double>> GetMinimalAndMaximumValuesOfArguments(List<ExternalEntity> data)
+        private static Dictionary<string, Tuple<double, double>> GetMinimalAndMaximumValuesOfArguments(List<ExternalEntity> data)
         {
             var arguments = data.SelectMany(e => e.Data.Select(kvp => kvp.Key)).Distinct().ToList();
             var flatennedData = arguments.ToDictionary(argument => argument, argument => new List<double>());
@@ -55,7 +57,7 @@ namespace Regression
             var min = minmaxArguments.Select(a => a.Value.Item1).Min();
             var max = minmaxArguments.Select(a => a.Value.Item2).Max();
 
-            return Math.Abs(min) < 1.0 || Math.Abs(max) < 1.0;
+            return Math.Abs(min) <= 1.0 || Math.Abs(max) <= 1.0;
         }
     }
 }
