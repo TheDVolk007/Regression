@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Regression.Domain;
 
-namespace Regression
+namespace Regression.Domain
 {
     public class DataNormalizer : IDataNormalizer
     {

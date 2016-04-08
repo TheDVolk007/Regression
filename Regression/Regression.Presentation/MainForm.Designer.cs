@@ -67,6 +67,7 @@
             this.performButton.TabIndex = 2;
             this.performButton.Text = "Perform";
             this.performButton.UseVisualStyleBackColor = true;
+            this.performButton.Click += new System.EventHandler(this.performButton_Click);
             // 
             // infoLabel
             // 

@@ -40,16 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataNormalizer.cs" />
-    <Compile Include="IDataNormalizer.cs" />
     <Compile Include="LinearRegression.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Regression.Domain\Regression.Domain.csproj">
-      <Project>{a076ca00-105e-4e58-b68e-63c7e98ec2ca}</Project>
-      <Name>Regression.Domain</Name>
-    </ProjectReference>
+    <Compile Include="RegressionEntity.cs" />
+    <Compile Include="RegressionEntityWithResult.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -70,5 +70,23 @@ namespace Presentation.Draw
                 }
             }
         }
+
+        public void DrawLine(double p1x, double p1y, double p2x, double p2y)
+        {
+            using(var graphic = canvas.CreateGraphics())
+            {
+                var p1 = new Point((int)p1x + center.X, -(int)p1y + center.Y);
+                var p2 = new Point((int)p2x * 100 + center.X, -(int)p2y * 100 + center.Y);
+                graphic.DrawLine(Pens.Black, p1, p2);
+            }
+        }
+
+        public void WipeLine(Point p1, Point p2)
+        {
+            using (var graphic = canvas.CreateGraphics())
+            {
+                graphic.DrawLine(Pens.White, p1, p2);
+            }
+        }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using Regression.Domain;
 
-namespace Regression
+namespace Regression.Domain
 {
     public interface IDataNormalizer
     {

@@ -40,8 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataNormalizer.cs" />
     <Compile Include="ExternalEntity.cs" />
+    <Compile Include="ExternalEntityWithResult.cs" />
+    <Compile Include="ExternalEntityWithResultToRegressionEntityWithResultMapper.cs" />
+    <Compile Include="IDataNormalizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Regression\Regression.csproj">
+      <Project>{7a73d2e8-3d8a-4308-b89d-31f2d8a7b7e9}</Project>
+      <Name>Regression</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

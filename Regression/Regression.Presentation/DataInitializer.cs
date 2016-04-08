@@ -13,22 +13,22 @@ namespace Regression.Presentation
             rnd = new Random();
         }
 
-        public List<ExternalEntity> Initialize()
+        public List<ExternalEntityWithResult> Initialize()
         {
-            var data = new List<ExternalEntity>();
+            var data = new List<ExternalEntityWithResult>();
             AddData(data, 1000);
 
             return data;
         }
 
-        private void AddData(List<ExternalEntity> dataList, int dataAmount)
+        private void AddData(List<ExternalEntityWithResult> dataList, int dataAmount)
         {
             double size = 30; //sqared meters
             for(var i = 0; i < dataAmount; i++)
             {
-                var houseData = new ExternalEntity();
+                var houseData = new ExternalEntityWithResult();
                 houseData.Data.Add("size", size);
-                houseData.Data.Add("price", NonLinearFunctionWithSqrtDependency(size));
+                houseData.Result.Add("price", LinearFunction(size));
                 houseData.Label = $"house#{i}";
                 dataList.Add(houseData);
 
