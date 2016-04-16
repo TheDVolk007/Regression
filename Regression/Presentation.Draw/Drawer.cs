@@ -88,5 +88,15 @@ namespace Presentation.Draw
                 graphic.DrawLine(Pens.White, p1, p2);
             }
         }
+
+        public Color GetRandomColor()
+        {
+            var randomGen = new Random();
+            var names = (KnownColor[])Enum.GetValues(typeof(KnownColor));
+            var randomColorName = names[randomGen.Next(names.Length)];
+            var randomColor = Color.FromKnownColor(randomColorName);
+
+            return randomColor;
+        }
     }
 }
